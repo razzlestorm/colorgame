@@ -1,5 +1,6 @@
 import pygame
 from player import Player
+from spritesheet_functions import SpriteSheet
 
 from pygame.locals import (
     RLEACCEL,
@@ -25,7 +26,16 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
 # Create screen object, takes a tuple, apparently
+canvas = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+my_spritesheet = SpriteSheet('star-ovr.png')
+hero1 = my_spritesheet.get_sprite(0, 0, 31, 47)
+
+canvas.fill((255, 255, 255))
+canvas.blit(hero1, (0, SCREEN_HEIGHT-300))
+screen.blit(canvas, (0, 0))
+pygame.display.update()
 
 
 # Instatiating Player
@@ -51,14 +61,13 @@ while running:
     pressed_keys = pygame.key.get_pressed()
     # update player sprite with keypresses
     player.update(pressed_keys)
-    # update enemy position
 
 
 # fills screen with black
     screen.fill((135, 206, 250))
 
     for entity in all_sprites:
-        screen.blit(entity.surf, entity.rect)
+        screen.blit(entity.image, entity.rect)
 
 
 # screen.blit(player.surf, player.rect)
