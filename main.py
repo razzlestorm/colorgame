@@ -10,6 +10,7 @@ from pygame.locals import (
     K_RIGHT,
     K_ESCAPE,
     KEYDOWN,
+    KEYUP,
     QUIT,
 )
 
@@ -53,6 +54,15 @@ while running:
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
                 running = False
+            if event.key == K_LEFT:
+                player.go_left()
+            if event.key == K_RIGHT:
+                player.go_right()
+        if event.type == KEYUP:
+            if event.key == K_LEFT and player.change_x < 0:
+                player.stop()
+            if event.key == K_RIGHT and player.change_x > 0:
+                player.stop()
         elif event.type == QUIT:
             running = False
 
@@ -63,8 +73,10 @@ while running:
     player.update(pressed_keys)
 
 
+
+
 # fills screen with black
-    screen.fill((135, 206, 250))
+    screen.fill((0, 0, 0))
 
     for entity in all_sprites:
         screen.blit(entity.image, entity.rect)
