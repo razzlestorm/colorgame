@@ -40,6 +40,8 @@ class Player(pygame.sprite.Sprite):
         # of our player
         self.walking_frames_l = []
         self.walking_frames_r = []
+        self.walking_frames_d = []
+        self.walking_frames_u = []
 
         # What direction is the player facing?
         self.direction = "R"
@@ -73,6 +75,27 @@ class Player(pygame.sprite.Sprite):
         image = pygame.transform.flip(image, True, False)
         self.walking_frames_r.append(image)
 
+        # Load all the downward facing images into a list
+        image = sprite_sheet.get_sprite(40, 56, 31, 47)
+        self.walking_frames_d.append(image)
+        image = sprite_sheet.get_sprite(76, 56, 31, 47)
+        self.walking_frames_d.append(image)
+        image = sprite_sheet.get_sprite(112, 56, 31, 47)
+        self.walking_frames_d.append(image)
+        image = sprite_sheet.get_sprite(148, 56, 31, 47)
+        self.walking_frames_d.append(image)
+
+
+        # Load all the upward images into a list
+        image = sprite_sheet.get_sprite(40, 112, 31, 47)
+        self.walking_frames_u.append(image)
+        image = sprite_sheet.get_sprite(76, 112, 31, 47)
+        self.walking_frames_u.append(image)
+        image = sprite_sheet.get_sprite(112, 112, 31, 47)
+        self.walking_frames_u.append(image)
+        image = sprite_sheet.get_sprite(148, 112, 31, 47)
+        self.walking_frames_u.append(image)
+
         # Set the image the player starts with
         self.image = self.walking_frames_r[0]
 
@@ -84,13 +107,27 @@ class Player(pygame.sprite.Sprite):
 
         # Move left/right
         self.rect.x += self.change_x
-        pos = self.rect.x
+        self.rect.y += self.change_y
+
+
         if self.direction == "R":
+            pos = self.rect.x
             frame = (pos // 30) % len(self.walking_frames_r)
             self.image = self.walking_frames_r[frame]
-        else:
+        elif self.direction == "L":
+            pos = self.rect.x
             frame = (pos // 30) % len(self.walking_frames_l)
             self.image = self.walking_frames_l[frame]
+
+        # Move up/down
+        elif self.direction == "U":
+            pos = self.rect.y
+            frame = (pos // 30) % len(self.walking_frames_u)
+            self.image = self.walking_frames_u[frame]
+        elif self.direction == "D":
+            pos = self.rect.y
+            frame = (pos // 30) % len(self.walking_frames_d)
+            self.image = self.walking_frames_d[frame]
 
 
     # Player-controlled movement:
@@ -104,6 +141,20 @@ class Player(pygame.sprite.Sprite):
         self.change_x = 6
         self.direction = "R"
 
-    def stop(self):
+    def go_up(self):
+        """ Called when the user hits the up arrow. """
+        self.change_y = -6
+        self.direction = "U"
+
+    def go_down(self):
+        """ Called when the user hits the down arrow. """
+        self.change_y = 6
+        self.direction = "D"
+
+    def stop_x(self):
         """ Called when the user lets off the keyboard. """
         self.change_x = 0
+
+    def stop_y(self):
+        """ Called when the user lets off the keyboard. """
+        self.change_y = 0

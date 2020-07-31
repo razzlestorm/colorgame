@@ -58,11 +58,19 @@ while running:
                 player.go_left()
             if event.key == K_RIGHT:
                 player.go_right()
+            if event.key == K_UP:
+                player.go_up()
+            if event.key == K_DOWN:
+                player.go_down()
         if event.type == KEYUP:
             if event.key == K_LEFT and player.change_x < 0:
-                player.stop()
+                player.stop_x()
             if event.key == K_RIGHT and player.change_x > 0:
-                player.stop()
+                player.stop_x()
+            if event.key == K_UP and player.change_y < 0:
+                player.stop_y()
+            if event.key == K_DOWN and player.change_y > 0:
+                player.stop_y()
         elif event.type == QUIT:
             running = False
 
