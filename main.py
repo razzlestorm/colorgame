@@ -27,15 +27,15 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
 # Create screen object, takes a tuple, apparently
-canvas = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
+#canvas = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-my_spritesheet = SpriteSheet('star-ovr.png')
-hero1 = my_spritesheet.get_sprite(0, 0, 31, 47)
+hero_spritesheet = SpriteSheet('sprites/star-ovr.png')
+hero1 = hero_spritesheet.get_sprite(0, 0, 31, 47)
 
-canvas.fill((255, 255, 255))
-canvas.blit(hero1, (0, SCREEN_HEIGHT-300))
-screen.blit(canvas, (0, 0))
+screen.fill((255, 255, 255))
+#canvas.blit(hero1, (0, SCREEN_HEIGHT-300))
+#screen.blit(canvas, (0, 0))
 pygame.display.update()
 
 

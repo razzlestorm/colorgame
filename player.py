@@ -49,7 +49,7 @@ class Player(pygame.sprite.Sprite):
         # List of sprites we can bump against
         self.level = None
 
-        sprite_sheet = SpriteSheet("star-ovr.png")
+        sprite_sheet = SpriteSheet("sprites/star-ovr.png")
         # Load all the left facing images into a list
         image = sprite_sheet.get_sprite(40, 0, 31, 47)
         self.walking_frames_l.append(image)
@@ -100,7 +100,7 @@ class Player(pygame.sprite.Sprite):
         self.image = self.walking_frames_r[0]
 
         # Set a reference to the image rect.
-        self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect(center=(SCREEN_WIDTH/2, SCREEN_HEIGHT/2))
 
     def update(self, pressed_keys):
         """ Move the player. """
