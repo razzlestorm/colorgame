@@ -50,6 +50,8 @@ running = True
 
 # Main loop
 while running:
+    # Get all keys currently pressed
+    pressed_keys = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
@@ -64,19 +66,18 @@ while running:
                 player.go_down()
         if event.type == KEYUP:
             if event.key == K_LEFT and player.change_x < 0:
-                player.stop_x()
+                player.stop_x(pressed_keys)
             if event.key == K_RIGHT and player.change_x > 0:
-                player.stop_x()
+                player.stop_x(pressed_keys)
             if event.key == K_UP and player.change_y < 0:
-                player.stop_y()
+                player.stop_y(pressed_keys)
             if event.key == K_DOWN and player.change_y > 0:
-                player.stop_y()
+                player.stop_y(pressed_keys)
         elif event.type == QUIT:
             running = False
 
 
-    # Get all keys currently pressed
-    pressed_keys = pygame.key.get_pressed()
+
     # update player sprite with keypresses
     player.update(pressed_keys)
 

@@ -151,10 +151,18 @@ class Player(pygame.sprite.Sprite):
         self.change_y = 6
         self.direction = "D"
 
-    def stop_x(self):
+    def stop_x(self, pressed_keys):
         """ Called when the user lets off the keyboard. """
         self.change_x = 0
+        if pressed_keys[K_UP]:
+                self.direction = "U"
+        if pressed_keys[K_DOWN]:
+                self.direction = "D"
 
-    def stop_y(self):
+    def stop_y(self, pressed_keys):
         """ Called when the user lets off the keyboard. """
         self.change_y = 0
+        if pressed_keys[K_LEFT]:
+                self.direction = "L"
+        if pressed_keys[K_RIGHT]:
+                self.direction = "R"
