@@ -1,0 +1,90 @@
+# Project Title
+
+This is a game about colors. And choices. I occasionally think about it and write down world-building notes, and should probably work on it more. 
+
+## Getting Started
+
+Players start in a world devoid of all hues of colors, except gray. They must solve puzzles, fight monsters, and make the world a better place by discovering different colors, and using the various effects each color has to make their mark and change their civilization.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+Give examples
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+* [PyGame](https://www.pygame.org/news) - maybe?
+* [MonoGame](https://www.monogame.net/) - More likely?
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Jerimiah Willhite** - *Initial work* -
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Inspiration
+* Zelda: A link to the Past
+* Fable
+* Rogue and rogue-likes
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
